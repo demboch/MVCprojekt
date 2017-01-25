@@ -1,0 +1,78 @@
+﻿@model PagedList.IPagedList<MVCprojekt.Models.Bron>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Spis Broni";
+}
+
+<h2>Spis Broni</h2>
+
+<p>
+    @if ((Request.IsAuthenticated && User.IsInRole("Admin")))
+    {
+       @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+    } 
+</p>
+
+@using (Html.BeginForm("Index", "Bron", FormMethod.Get))
+{
+    <p>
+        Szukaj: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span> Szukaj</button>
+    </p>
+
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Nazwa Broni", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Model", "Index", new { sortOrder = ViewBag.ModelSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Numer Seryjny", "Index", new { sortOrder = ViewBag.NumberSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            Opis
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NazwaBroni)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Model)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumerSeryjny)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Opis)
+        </td>
+        <td>
+            @Html.ActionLink("Szczegóły", "Details", null, new { id = item.BronId }, new { @class = "btn btn-default" })
+            @if ((Request.IsAuthenticated && User.IsInRole("Admin")))
+            {
+                @Html.ActionLink("Edytuj", "Edit", null, new { id = item.BronId }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Usuń", "Delete", null, new { id = item.BronId }, new { @class = "btn btn-default" })
+
+            }
+        </td>
+    </tr>
+}
+
+</table>
+
+Strona @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) z @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+
+
+

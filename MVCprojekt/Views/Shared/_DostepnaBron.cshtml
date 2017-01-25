@@ -1,0 +1,24 @@
+﻿@model IEnumerable<MVCprojekt.Models.Bron>
+
+<h2 class="text-center">Dostępna Broń</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Nazwa Broni</th>
+            <th>Model</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NazwaBroni)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

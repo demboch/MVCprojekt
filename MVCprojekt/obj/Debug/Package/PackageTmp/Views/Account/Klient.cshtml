@@ -1,0 +1,31 @@
+﻿@model IEnumerable<MVCprojekt.Models.InformacjeKlient>
+
+@{
+    ViewBag.Title = "Klient Dane";
+}
+
+<h2>Klient</h2>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Imie</th>
+        <th>Nazwisko</th>
+        <th>Wiek</th>
+        <th>Email</th>
+        <th>Pesel</th>
+        <th>Numer Telefonu</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.KlientId</td>
+            <td>@item.Imie</td>
+            <td>@item.Nazwisko</td>
+            <td>@item.Wiek</td>
+            <td>@item.Pesel</td>
+            <td>@item.Numer_Telefonu</td>
+        </tr>
+    }
+</table>
+

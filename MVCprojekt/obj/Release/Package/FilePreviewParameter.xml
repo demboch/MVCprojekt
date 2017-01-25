@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="MVCprojektGunShop" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\dembo_000\\documents\\visual\ studio\ 2013\\Projects\\MVCprojekt\\MVCprojekt\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\dembo_000\\documents\\visual\ studio\ 2013\\Projects\\MVCprojekt\\MVCprojekt\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="" value="Data Source=tcp:mvcprojektgunshopdbserver.database.windows.net,1433;Initial Catalog=MVCprojektGunShop_db;User Id=demboch@mvcprojektgunshopdbserver;Password=Rightwrong92" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\dembo_000\\documents\\visual\ studio\ 2013\\Projects\\MVCprojekt\\MVCprojekt\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+</parameters>

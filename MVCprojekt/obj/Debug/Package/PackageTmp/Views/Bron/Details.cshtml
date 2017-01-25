@@ -1,0 +1,53 @@
+﻿@model MVCprojekt.Models.Bron
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Sklep</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NazwaBroni)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NazwaBroni)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumerSeryjny)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumerSeryjny)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Opis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Opis)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @if (this.User.IsInRole("Admin"))
+    {
+        @Html.ActionLink("Edytuj", "Edit", new { id = Model.BronId }, new { @class = "btn btn-default" })
+    }
+    @Html.ActionLink("Powrót do listy", "Index", null, new { @class = "btn btn-default" })
+</p>

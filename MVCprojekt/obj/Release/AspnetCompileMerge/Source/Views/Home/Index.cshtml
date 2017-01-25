@@ -1,0 +1,33 @@
+@model List<MVCprojekt.Models.Bron>
+
+@using MVCprojekt.Helpers
+
+@{
+    ViewBag.Title = "Strona G³ówna";
+}
+
+<h2>Bron</h2>
+
+<div class="row">
+    @ViewBag.ProfileInformation
+</div>
+
+<div class="jumbotron">
+    <div style="left: -200px;"><img src="http://www.awthentik.com/img/thegunshop.jpg" alt="GunShop Logo"></div> 
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Getting started</h2>
+        <p>
+            Opis 
+        </p>
+        <p><a class="btn btn-default" href="http://www.militaria.pl/">Podobne &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+       @Html.Image("obraz", "http://www.dadsgunshop.com/shop/wp-content/uploads/2013/06/banner.jpg", "Banner Logo", "width:720px", null)
+    </div>
+    <div class="col-md-4">
+        @MyHelper.Podswietlenie("Wkrótce wiêcej")
+    </div>
+</div>
